@@ -1,0 +1,18 @@
+/mnt/ialabnas/homes/jiossandon/instructions-follower
+scylla
+Thu Jan 13 16:55:49 -03 2022
+Starting notebook requesting one GPU
+ * Serving Flask app 'main' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://192.168.1.118:4444/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 747-351-558
+192.168.1.112 - - [13/Jan/2022 16:56:01] "GET /experiment HTTP/1.1" 200 -
+192.168.1.112 - - [13/Jan/2022 16:56:01] "GET /experiment HTTP/1.1" 200 -
+192.168.1.112 - - [13/Jan/2022 16:56:02] "GET /favicon.ico HTTP/1.1" 200 -

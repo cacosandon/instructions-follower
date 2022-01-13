@@ -1,32 +1,14 @@
 IALAB_USER = 'jiossandon'
 EXPERIMENT_NAME = 'testing'
 
-import os
 import os.path as osp
 import json
 import sys
-import MatterSim
-import time
-import numpy as np
-import skimage.transform
-import networkx as nx
-from collections import defaultdict
-import random
-import io
-
-from IPython.core.display import display, HTML
-from pprint import pprint
-
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-from mpl_toolkits.mplot3d import Axes3D
-
-from parse_house_segmentations import HouseSegmentationFile
+import base64
 
 matterport_build_path = f'/home/{IALAB_USER}/datasets/Matterport3DSimulator/build'
 metadata_script_path = f'/home/{IALAB_USER}/repos/360-visualization/metadata_parser'
 results_path = f'/home/{IALAB_USER}/storage/speaker_follower_with_objects/tasks/R2R/speaker/results/'
-
 
 if matterport_build_path not in sys.path:
     sys.path.append(matterport_build_path)
@@ -36,6 +18,21 @@ if metadata_script_path not in sys.path:
 
 if results_path not in sys.path:
     sys.path.append(results_path)
+
+
+import matplotlib
+
+matplotlib.use('WebAgg')
+
+import matplotlib.pyplot as plt
+
+import MatterSim
+import numpy as np
+import networkx as nx
+from parse_house_segmentations import HouseSegmentationFile
+from collections import defaultdict
+import random
+import io
 
 # load navigation graph to calculate the relative heading of the next location
 def load_nav_graph(graph_path):
@@ -230,6 +227,8 @@ def run_human_follower():
     dataset = 'val_unseen'
     iteration = 20000
 
+    results_path = f'/home/{IALAB_USER}/storage/speaker_follower_with_objects/tasks/R2R/speaker/results/'
+
     paths = list(map(lambda base_path: results_path + f'{base_path}{speaker_model}_{dataset}_iter_{iteration}.json', base_models))
 
     datas = []
@@ -272,7 +271,7 @@ def run_human_follower():
 
     metadata = HouseSegmentationFile.load_mapping(scan)
 
-    return scan, path_id, viewpoints_sequence, initial_heading, instruction_to_eval, metadata
+    return scan, path_id, viewpoints_sequence, viewpoints_information, initial_heading, instruction_to_eval, metadata
 
 
 
