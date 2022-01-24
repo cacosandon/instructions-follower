@@ -1,0 +1,29 @@
+<div class="reload-box" id="reload">
+  <div class="select-box">
+    {% for option in options[0] %}
+      <div class="button-container">
+        <button name="button" class="node-button" value="{{ option.value }}">{{ option.label }}</button>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="select-box">
+    {% for option in options[1] %}
+      <div class="button-container">
+        <button name="button" class="turn-button" value="{{ option.value }}">{{ option.label }}</button>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="select-box">
+    {% for option in options[2] %}
+      <div class="button-container">
+        <button name="button" class="stop-button" value="{{ option.value }}">{{ option.label }}</button>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="image-container">
+    <img id="plot" src="data:image/png;base64, {{ image_data|safe }}">
+  </div>
+</div>

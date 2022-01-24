@@ -269,9 +269,7 @@ def run_human_follower():
     if EXPERIMENT_NAME == 'testing':
         instruction_to_eval = craft_instruction_data
 
-    metadata = HouseSegmentationFile.load_mapping(scan)
-
-    return scan, path_id, viewpoints_sequence, viewpoints_information, initial_heading, instruction_to_eval, metadata
+    return scan, path_id, viewpoints_sequence, viewpoints_information, initial_heading, instruction_to_eval
 
 
 
