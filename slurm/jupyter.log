@@ -1,6 +1,6 @@
 /mnt/ialabnas/homes/jiossandon/instructions-follower
 scylla
-Thu Jan 13 16:55:49 -03 2022
+Sun Jan 23 23:22:38 -03 2022
 Starting notebook requesting one GPU
  * Serving Flask app 'main' (lazy loading)
  * Environment: production
@@ -13,6 +13,17 @@ Starting notebook requesting one GPU
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 747-351-558
-192.168.1.112 - - [13/Jan/2022 16:56:01] "GET /experiment HTTP/1.1" 200 -
-192.168.1.112 - - [13/Jan/2022 16:56:01] "GET /experiment HTTP/1.1" 200 -
-192.168.1.112 - - [13/Jan/2022 16:56:02] "GET /favicon.ico HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:22:44] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:22:44] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [23/Jan/2022 23:22:44] "GET /favicon.ico HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:25:18] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:25:18] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [23/Jan/2022 23:25:18] "GET /favicon.ico HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:25:35] "GET /experiment?username=a HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:25:35] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [23/Jan/2022 23:25:35] "GET /favicon.ico HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:25:42] "GET /favicon.ico HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:25:52] "GET /experiment?username=a HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:25:52] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [23/Jan/2022 23:25:53] "GET /favicon.ico HTTP/1.1" 200 -
+192.168.1.112 - - [23/Jan/2022 23:26:00] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -

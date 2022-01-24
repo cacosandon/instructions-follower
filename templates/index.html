@@ -2,44 +2,29 @@
 
 <head>
     <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css', _external=True) }}">
 </head>
 
-<body id="plot">
-    <div class="row" >
-        <img src="{{ url_for('static', filename='img/model_diagram.png', _external=True) }}">
-        <div class="title">
-            <div>Hola :) !!!!</div>
-        </div>
+<body>
+  <div class="container">
+    <div class="title" >
+       Blind Navigation for ECCV Submission
     </div>
+    <input type="text" required id="username" placeholder="Enter your username"/>
 
-    <div class="container">
-        Pruebita 2
-    </div>
-
-    <img src="data:image/png;base64, {{ encoded_img|safe }}">
-
-    <button id="click">click me hej</button>
-
+    <button id="click">GO!</button>
+  </div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
   $("#click").on('click', function(event) {
-    event.preventDefault();
+    if ($("#username").val().length === 0) {
+      return;
+    }
 
-    $.ajax({
-      url: "/new_plot",
-      type: "get",
-      data: {jsdata: 'hasd'},
-      success: function(response) {
-        $("#plot").html(response);
-      },
-      error: function(xhr) {
-        //Do Something to handle error
-      }
-    });
+    window.location = "/experiment?username=" + $("#username").val()
   });
-  </script>
-
+</script>
 </html>

@@ -1,5 +1,7 @@
-from flask import Flask, render_template, url_for, flash, request, redirect, make_response, session
 import sys
+import json
+from flask import Flask, render_template, url_for, flash, request, redirect, make_response, session
+from utils import select_options
 
 IALAB_USER = 'jiossandon'
 
@@ -27,38 +29,28 @@ app.secret_key = "actually not a secret key"
 
 @app.route("/", methods=["GET"])
 def index():
-  N = 50
-  x = [0.5 for _ in range(4)]
-  y = x
-  colors = [0.3 for _ in range(4)]
-  plt.scatter(x, y, c=colors, alpha=0.5)
-
-  print("yess")
-
-  f = io.BytesIO()
-  plt.savefig(f, format="png", facecolor=(0.95, 0.95, 0.95))
-  encoded_img = base64.b64encode(f.getvalue()).decode('utf-8').replace('\n', '')
-  f.close()
-
-  return render_template("index.html", encoded_img=encoded_img)
+  return render_template("index.html")
 
 @app.route("/experiment", methods=["GET"])
 def experiment():
-  scan, path_id, viewpoints_sequence, viewpoints_information, initial_heading, instruction_to_eval, metadata = run_human_follower()
+  scan, path_id, viewpoints_sequence, viewpoints_information, \
+  initial_heading, instruction_to_eval, metadata = run_human_follower()
 
   # ### Plot viewpoints and save the data
   curr_viewpoint_name = viewpoints_sequence[0]
   last_viewpoint_name = viewpoints_sequence[-1]
   curr_heading = initial_heading
 
+  session['path'] = []
+
   session['information'] = {
+      'owner': request.args["username"],
       'instruction': instruction_to_eval['instruction'],
       'model': instruction_to_eval['model'],
       'scan': scan,
       'path': path_id
   }
 
-  session['path'] = []
   session['path'].append({
       'name': curr_viewpoint_name,
       'heading': curr_heading
@@ -70,7 +62,12 @@ def experiment():
 
   instruction_string = instruction_to_eval['instruction'].capitalize().replace(' .', '.')
 
-  return render_template("experiment.html", instruction=instruction_string, image_data=img_data)
+  return render_template(
+      "experiment.html",
+      instruction=instruction_string,
+      image_data=img_data,
+      options=select_options(len(session['reachable_viewpoints_array']))
+    )
 
   next_viewpoint_option = input(f"{instruction_string}\n\n >>> Where you want to go?\n")
   if next_viewpoint_option.lower() == 'stop':
@@ -94,10 +91,6 @@ def experiment():
 
 @app.route("/new_plot", methods=["GET"])
 def new_plot():
-
-  information['path'] = path
-  information['success'] = result
-  information['owner'] = EXPERIMENT_NAME
 
 
   def append_record(record):
