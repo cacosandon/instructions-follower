@@ -1,12 +1,6 @@
-<html>
+{% extends "layout.html" %}
 
-<head>
-    <title>Instruction Follower</title>
-    <meta charset="utf-8">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css', _external=True) }}">
-</head>
-
+{% block content %}
 <body>
   <div class="container">
     <div class="welcome">
@@ -30,7 +24,9 @@
     </div>
   </div>
 </body>
+{% endblock %}
 
+{% block scripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
   $('#main-reload').on('click', 'button', function(event) {
@@ -55,4 +51,4 @@
     });
   });
 </script>
-</html>
+{% endblock %}

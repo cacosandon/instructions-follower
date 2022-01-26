@@ -19,9 +19,30 @@ body {
   padding-bottom: 8px;
 }
 
+.alert-container {
+  padding: 8px;
+}
+
+.alert {
+  color: white;
+  background: rgb(214, 166, 166);
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+  border-color: rgb(218, 143, 143);
+  border-width: 1px;
+  border-style: solid;
+}
+
 .welcome {
   font-size: xx-large;
   text-align: center;
+}
+
+.username-input {
+  padding: 4px;
 }
 
 .instruction-guide {

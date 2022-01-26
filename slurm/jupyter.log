@@ -1,6 +1,6 @@
 /mnt/ialabnas/homes/jiossandon/instructions-follower
 scylla
-Mon Jan 24 00:50:52 -03 2022
+Wed Jan 26 10:13:21 -03 2022
 Starting notebook requesting one GPU
  * Serving Flask app 'main' (lazy loading)
  * Environment: production
@@ -13,102 +13,115 @@ Starting notebook requesting one GPU
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 747-351-558
-192.168.1.112 - - [24/Jan/2022 00:51:41] "[35m[1mGET /experiment?username=a HTTP/1.1[0m" 500 -
-Traceback (most recent call last):
-  File "/mnt-homes/kraken/jiossandon/.local/lib/python3.6/site-packages/flask/app.py", line 2091, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/mnt-homes/kraken/jiossandon/.local/lib/python3.6/site-packages/flask/app.py", line 2076, in wsgi_app
-    response = self.handle_exception(e)
-  File "/mnt-homes/kraken/jiossandon/.local/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/mnt-homes/kraken/jiossandon/.local/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/mnt-homes/kraken/jiossandon/.local/lib/python3.6/site-packages/flask/app.py", line 1516, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/mnt-homes/kraken/jiossandon/.local/lib/python3.6/site-packages/flask/app.py", line 1502, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/mnt/ialabnas/homes/jiossandon/instructions-follower/main.py", line 70, in experiment
-    username=request.args.username,
-AttributeError: 'ImmutableMultiDict' object has no attribute 'username'
-192.168.1.112 - - [24/Jan/2022 00:51:41] "GET /experiment?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:51:41] "GET /experiment?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:51:41] "GET /experiment?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:51:41] "GET /experiment?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:51:42] "GET /experiment?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
- * Detected change in '/home/jiossandon/storage/instructions-follower/main.py', reloading
+192.168.1.112 - - [26/Jan/2022 10:13:29] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:13:29] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:13:44] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:13:44] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:13:51] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:13:51] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:13:51] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:15:31] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:15:31] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:15:35] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:15:36] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:15:36] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:15:36] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:15:41] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:15:41] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:15:41] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:15:47] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:17:42] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:17:43] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:17:43] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:17:56] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:17:56] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:18:00] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:18:00] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:18:00] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:18:12] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:18:12] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:18:12] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:18:30] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:18:30] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:18:30] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:19:16] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:19:16] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:19:19] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:19:19] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:19:19] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:19:47] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:19:47] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:19:47] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:21:55] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:21:55] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:21:55] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:22:09] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:22:10] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:22:10] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:22:18] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:22:18] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:22:18] "GET /static/css/index.css HTTP/1.1" 200 -
+ * Detected change in '/mnt/ialabnas/homes/jiossandon/instructions-follower/main.py', reloading
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
+The file contain 783 paths. The index must be between 0 and 782.
+Cached file exists, loading.
 The file contain 783 paths. The index must be between 0 and 782.
 Cached file exists, loading.
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 747-351-558
-192.168.1.112 - - [24/Jan/2022 00:52:26] "GET /experiment?username=a HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:52:26] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:52:26] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:52:26] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:52:48] "GET /experiment?username=a HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:52:48] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:52:49] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:52:49] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:52:57] "GET /experiment?username=a HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:52:57] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:52:57] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:52:58] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:53:05] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:53:05] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:53:05] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:53:05] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:53:41] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:53:41] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:53:41] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:53:41] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:53:58] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:53:58] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:53:58] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:53:58] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:54:21] "GET /new_plot?action=node-2 HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:54:25] "GET /new_plot?action=node-2 HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:03] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:03] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:56:03] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:56:03] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:07] "GET /new_plot?action=node-1 HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:27] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:27] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:56:28] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:56:28] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:31] "GET /new_plot?action=node-2 HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:36] "GET /new_plot?action=node-4 HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:41] "GET /new_plot?action=node-3 HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:46] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:56:46] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:56:46] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:56:46] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:57:17] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:57:17] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:57:17] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:57:17] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:57:29] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:57:29] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:57:30] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:57:30] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:58:31] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:58:31] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:58:32] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:58:32] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:58:37] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:58:37] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:58:38] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:58:38] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:58:47] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:58:47] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:58:47] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:58:47] "GET /favicon.ico HTTP/1.1" 200 -
-/mnt/ialabnas/homes/jiossandon/instructions-follower/cualitative_collect.py:153: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
-  fig, ax = plt.subplots(1,1, figsize=(18,9))
-192.168.1.112 - - [24/Jan/2022 00:58:53] "GET /experiment?username=Caco HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:58:53] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:58:53] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [24/Jan/2022 00:58:53] "GET /favicon.ico HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:59:20] "GET /new_plot?action=node-1 HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:59:25] "GET /new_plot?action=node-1 HTTP/1.1" 200 -
-192.168.1.112 - - [24/Jan/2022 00:59:30] "GET /new_plot?action=node-3 HTTP/1.1" 200 -
+ * Detected change in '/mnt/ialabnas/homes/jiossandon/instructions-follower/main.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 747-351-558
+192.168.1.112 - - [26/Jan/2022 10:23:03] "[32mGET /experiment HTTP/1.1[0m" 302 -
+192.168.1.112 - - [26/Jan/2022 10:23:03] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:23:03] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:23:40] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:23:40] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:23:50] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:23:50] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:23:51] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:23:51] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:23:55] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:23:55] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:23:55] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:23:55] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:24:09] "GET /experiment?username=a HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:24:09] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:24:09] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:28:55] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:28:55] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:28:56] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:28:56] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:29:02] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:29:02] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:29:03] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:29:03] "GET /static/css/index.scss HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:29:04] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:29:04] "[36mGET /static/css/index.scss HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:29:04] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:29:04] "[36mGET /static/css/index.scss HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 10:29:05] "GET / HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 10:29:05] "[36mGET /static/css/index.scss HTTP/1.1[0m" 304 -

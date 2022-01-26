@@ -43,35 +43,41 @@ def experiment():
   last_viewpoint_name = viewpoints_sequence[-1]
   curr_heading = initial_heading
 
+  if "username" in request.args:
+    username = request.args["username"]
+  else:
+    flash('❌  Oops. Please enter an username for navigating')
+    return redirect(url_for('index'))
+
   session['path'] = []
 
   session['information'] = {
-      'owner': request.args["username"],
-      'instruction': instruction_to_eval['instruction'],
-      'viewpoints_information': viewpoints_information,
-      'model': instruction_to_eval['model'],
-      'scan': scan,
-      'path': path_id
+    'owner': username,
+    'instruction': instruction_to_eval['instruction'],
+    'viewpoints_information': viewpoints_information,
+    'model': instruction_to_eval['model'],
+    'scan': scan,
+    'path': path_id
   }
 
   session['path'].append({
-      'name': curr_viewpoint_name,
-      'heading': curr_heading
+    'name': curr_viewpoint_name,
+    'heading': curr_heading
   })
 
   session['reachable_viewpoints_array'], image_data = get_info(
-      scan, curr_viewpoint_name, curr_heading, metadata, viewpoints_information
+    scan, curr_viewpoint_name, curr_heading, metadata, viewpoints_information
   )
 
   instruction_string = instruction_to_eval['instruction'].capitalize().replace(' .', '.')
 
   return render_template(
-      "experiment.html",
-      username=request.args["username"],
-      instruction=instruction_string,
-      image_data=image_data,
-      options=select_options(len(session['reachable_viewpoints_array']))
-    )
+    "experiment.html",
+    username=username,
+    instruction=instruction_string,
+    image_data=image_data,
+    options=select_options(len(session['reachable_viewpoints_array']))
+  )
 
   next_viewpoint_option = input(f"{instruction_string}\n\n >>> Where you want to go?\n")
   if next_viewpoint_option.lower() == 'stop':
@@ -90,36 +96,36 @@ def experiment():
 
 @app.route("/new_plot", methods=["GET"])
 def new_plot():
-    if "node" in request.args["action"]:
-        next_node_index = int(request.args["action"].split("-")[1])
-        next_viewpoint = session["reachable_viewpoints_array"][next_node_index - 1]
+  if "node" in request.args["action"]:
+    next_node_index = int(request.args["action"].split("-")[1])
+    next_viewpoint = session["reachable_viewpoints_array"][next_node_index - 1]
 
-        curr_heading = next_viewpoint[3]
-        curr_viewpoint_name = next_viewpoint[4]
+    curr_heading = next_viewpoint[3]
+    curr_viewpoint_name = next_viewpoint[4]
 
-        session['path'].append({
-            'name': curr_viewpoint_name,
-            'heading': curr_heading
-        })
+    session['path'].append({
+        'name': curr_viewpoint_name,
+        'heading': curr_heading
+    })
 
-        scan = session['information']['scan']
-        metadata = HouseSegmentationFile.load_mapping(scan)
-        viewpoints_information = session['information']['viewpoints_information']
+    scan = session['information']['scan']
+    metadata = HouseSegmentationFile.load_mapping(scan)
+    viewpoints_information = session['information']['viewpoints_information']
 
-        session['reachable_viewpoints_array'], image_data = get_info(
-            scan, curr_viewpoint_name, curr_heading, metadata, viewpoints_information
-        )
+    session['reachable_viewpoints_array'], image_data = get_info(
+        scan, curr_viewpoint_name, curr_heading, metadata, viewpoints_information
+    )
 
-        return render_template(
-            "reload.html",
-            image_data=image_data,
-            options=select_options(len(session['reachable_viewpoints_array']))
-        )
+    return render_template(
+        "reload.html",
+        image_data=image_data,
+        options=select_options(len(session['reachable_viewpoints_array']))
+    )
 
     def append_record(record):
-        with open('/home/jiossandon/storage/speaker_follower_with_objects/cualitative/results.json', 'a') as f:
-            json.dump(record, f)
-            f.write(os.linesep)
+      with open('/home/jiossandon/storage/speaker_follower_with_objects/cualitative/results.json', 'a') as f:
+              json.dump(record, f)
+              f.write(os.linesep)
 
     return "hola :)"
 

@@ -1,23 +1,29 @@
-<html>
+{% extends "layout.html" %}
 
-<head>
-    <title>Instruction Follower</title>
-    <meta charset="utf-8">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css', _external=True) }}">
-</head>
-
+{% block content %}
 <body>
   <div class="container">
     <div class="title" >
        Blind Navigation for ECCV Submission
     </div>
-    <input type="text" required id="username" placeholder="Enter your username"/>
 
-    <button id="click">GO!</button>
+    <div class="alert-container">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
+
+    <input class="username-input" type="text" required id="username" placeholder="Enter your username"/>
+
+    <button class="turn-button" id="click">GO!</button>
   </div>
 </body>
-
+{% endblock %}
+{% block scripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
   $("#click").on('click', function(event) {
@@ -28,4 +34,4 @@
     window.location = "/experiment?username=" + $("#username").val()
   });
 </script>
-</html>
+{% endblock %}
