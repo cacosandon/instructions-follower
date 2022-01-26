@@ -4,12 +4,15 @@
     <title>Instruction Follower</title>
     <meta charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.scss', _external=True) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css', _external=True) }}">
     <link rel="icon" href="https://cdn.shopify.com/s/files/1/1061/1924/products/Robot_Emoji_Icon_abe1111a-1293-4668-bdf9-9ceb05cff58e_large.png?v=1571606090" type="image/gif" />
   </head>
+
   <body>
     <div>{% block content %}{% endblock %}</div>
   </body>
 
   {% block scripts %}{% endblock %}
+
+  <footer><p>2022, Caco🦿</p></footer>
 </html>

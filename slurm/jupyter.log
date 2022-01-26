@@ -1,6 +1,6 @@
 /mnt/ialabnas/homes/jiossandon/instructions-follower
 scylla
-Wed Jan 26 10:13:21 -03 2022
+Wed Jan 26 12:34:25 -03 2022
 Starting notebook requesting one GPU
  * Serving Flask app 'main' (lazy loading)
  * Environment: production
@@ -13,115 +13,14 @@ Starting notebook requesting one GPU
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 747-351-558
-192.168.1.112 - - [26/Jan/2022 10:13:29] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:13:29] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:13:44] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:13:44] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:13:51] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:13:51] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:13:51] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:15:31] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:15:31] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:15:35] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:15:36] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:15:36] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:15:36] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:15:41] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:15:41] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:15:41] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:15:47] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:17:42] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:17:43] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:17:43] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:17:56] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:17:56] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:18:00] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:18:00] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:18:00] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:18:12] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:18:12] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:18:12] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:18:30] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:18:30] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:18:30] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:19:16] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:19:16] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:19:19] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:19:19] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:19:19] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:19:47] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:19:47] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:19:47] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:21:55] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:21:55] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:21:55] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:22:09] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:22:10] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:22:10] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:22:18] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:22:18] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:22:18] "GET /static/css/index.css HTTP/1.1" 200 -
- * Detected change in '/mnt/ialabnas/homes/jiossandon/instructions-follower/main.py', reloading
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
-The file contain 783 paths. The index must be between 0 and 782.
-Cached file exists, loading.
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 747-351-558
- * Detected change in '/mnt/ialabnas/homes/jiossandon/instructions-follower/main.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 747-351-558
-192.168.1.112 - - [26/Jan/2022 10:23:03] "[32mGET /experiment HTTP/1.1[0m" 302 -
-192.168.1.112 - - [26/Jan/2022 10:23:03] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:23:03] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:23:40] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:23:40] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:23:50] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:23:50] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:23:51] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:23:51] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:23:55] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:23:55] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:23:55] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:23:55] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:24:09] "GET /experiment?username=a HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:24:09] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:24:09] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:28:55] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:28:55] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:28:56] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:28:56] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:29:02] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:29:02] "GET /static/css/index.css HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:29:03] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:29:03] "GET /static/css/index.scss HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:29:04] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:29:04] "[36mGET /static/css/index.scss HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:29:04] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:29:04] "[36mGET /static/css/index.scss HTTP/1.1[0m" 304 -
-192.168.1.112 - - [26/Jan/2022 10:29:05] "GET / HTTP/1.1" 200 -
-192.168.1.112 - - [26/Jan/2022 10:29:05] "[36mGET /static/css/index.scss HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 12:34:53] "GET /experiment?username=caco HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 12:34:53] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 12:34:53] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 12:34:57] "GET /new_plot?action=stop HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 12:34:57] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 12:35:29] "GET /experiment?username=caco HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 12:35:29] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 12:35:30] "[36mGET /static/img/gif-robot.gif HTTP/1.1[0m" 304 -
+192.168.1.112 - - [26/Jan/2022 12:35:35] "GET /new_plot?action=turn-right HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 12:35:37] "GET /new_plot?action=stop HTTP/1.1" 200 -
+192.168.1.112 - - [26/Jan/2022 12:35:37] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -

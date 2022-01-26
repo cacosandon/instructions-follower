@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<body>
   <div class="container">
     <div class="title" >
        Blind Navigation for ECCV Submission
+    </div>
+
+    <div class="image-container-reduced">
+      <img src="{{ url_for('static', filename='img/example.png', _external=True) }}">
     </div>
 
     <div class="alert-container">
@@ -17,16 +20,37 @@
       {% endwith %}
     </div>
 
-    <input class="username-input" type="text" required id="username" placeholder="Enter your username"/>
+    <div class="paper">
+      <div class="paper paragraph">
+        Web page for experimenting new augmented instructions. Paper is called "Blind navigation: creating short and
+        object-based instructions", by Joaquín Ossandón, Benjamin Earle and Álvaro Soto.
+      </div>
 
-    <button class="turn-button" id="click">GO!</button>
+      <div class="paper paragraph">
+        We built our model over Speaker-Follower module, adding objects and craft instructions auxiliary
+        task, which you can see on <a href="https://github.com/cacosandon/speaker_follower_with_objects" target="_blank">our repository</a>. Then, we generate new instructions.
+        Here we test if humans can follow different instructions: original from humans, craft instructions and from Speaker module with auxiliary task.
+      </div>
+      <div class="paper paragraph">
+        Envirionments are visualized using <a href="https://github.com/cacosandon/360-visualization" target="_blank">360-visualization repository</a>.
+      </div>
+    </div>
+
+    <div class="try-container">
+      <div class="try-title">Want to try it? Contribute👇</div>
+      <div class="row">
+        <div class="username-input-container">
+          <input class="username-input" type="text" required id="username" placeholder="Enter your username"/>
+        </div>
+        <button class="turn-button" id="go-button">Navigate 🤖</button>
+      </div>
+    </div>
   </div>
-</body>
 {% endblock %}
 {% block scripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-  $("#click").on('click', function(event) {
+  $("#go-button").on('click', function(event) {
     if ($("#username").val().length === 0) {
       return;
     }

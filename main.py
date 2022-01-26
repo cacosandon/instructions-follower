@@ -2,6 +2,7 @@ import sys
 import json
 from flask import Flask, render_template, url_for, flash, request, redirect, make_response, session
 from utils import select_options
+import numpy as np
 
 IALAB_USER = 'jiossandon'
 
@@ -55,6 +56,7 @@ def experiment():
     'owner': username,
     'instruction': instruction_to_eval['instruction'],
     'viewpoints_information': viewpoints_information,
+    'last_viewpoint_name': last_viewpoint_name,
     'model': instruction_to_eval['model'],
     'scan': scan,
     'path': path_id
@@ -103,31 +105,60 @@ def new_plot():
     curr_heading = next_viewpoint[3]
     curr_viewpoint_name = next_viewpoint[4]
 
-    session['path'].append({
-        'name': curr_viewpoint_name,
-        'heading': curr_heading
-    })
+  if "turn" in request.args["action"]:
+    current_viewpoint = session['path'][-1]
+    curr_viewpoint_name, curr_heading = current_viewpoint['name'], current_viewpoint['heading']
+    curr_heading += { "left": -np.pi / 2, "right": np.pi/2, "around": np.pi }[request.args["action"].split("-")[1]]
 
-    scan = session['information']['scan']
-    metadata = HouseSegmentationFile.load_mapping(scan)
-    viewpoints_information = session['information']['viewpoints_information']
+  if "stop" in request.args["action"]:
+    curr_viewpoint_name = session['path'][-1]['name']
+    last_viewpoint_name = session['information']['last_viewpoint_name']
 
-    session['reachable_viewpoints_array'], image_data = get_info(
-        scan, curr_viewpoint_name, curr_heading, metadata, viewpoints_information
-    )
-
-    return render_template(
-        "reload.html",
-        image_data=image_data,
-        options=select_options(len(session['reachable_viewpoints_array']))
-    )
+    success = curr_viewpoint_name == last_viewpoint_name
 
     def append_record(record):
-      with open('/home/jiossandon/storage/speaker_follower_with_objects/cualitative/results.json', 'a') as f:
+      with open('/home/jiossandon/storage/instructions-follower/results/results.json', 'a') as f:
               json.dump(record, f)
               f.write(os.linesep)
+    information = {
+      'instruction': session['information']['instruction'],
+      'scan': session['information']['scan'],
+      'path_id': session['information']['path'],
+      'owner': session['information']['owner'],
+      'model': session['information']['model'],
+      'success': success,
+      'path': session['path']
+    }
 
-    return "hola :)"
+    append_record(information)
+
+    return render_template(
+      "result.html",
+      image_data=None,
+      success=success
+    )
+
+  scan = session['information']['scan']
+  metadata = HouseSegmentationFile.load_mapping(scan)
+  viewpoints_information = session['information']['viewpoints_information']
+
+  session['path'].append({
+      'name': curr_viewpoint_name,
+      'heading': curr_heading,
+      'action': request.args["action"]
+  })
+
+  session['reachable_viewpoints_array'], image_data = get_info(
+      scan, curr_viewpoint_name, curr_heading, metadata, viewpoints_information
+  )
+
+  return render_template(
+      "reload.html",
+      image_data=image_data,
+      options=select_options(len(session['reachable_viewpoints_array']))
+  )
+
+  return "hola :)"
 
 @app.errorhandler(404)
 def invalid_route(e):
