@@ -81,23 +81,12 @@ def experiment():
     options=select_options(len(session['reachable_viewpoints_array']))
   )
 
-  next_viewpoint_option = input(f"{instruction_string}\n\n >>> Where you want to go?\n")
-  if next_viewpoint_option.lower() == 'stop':
-      if curr_viewpoint_name == last_viewpoint_name:
-          print("\n🎉 Congrats, you arrived correctly :)\n")
-      else:
-          print("\n☹️ You didn't reach the goal :(\n")
-      print("Thank you for participating in my experiment ❤️")
-
-      if input("\nDo you want to see the final viewpoint? yes/no\n") == 'yes':
-          get_info(
-              scan, last_viewpoint_name, curr_heading, metadata, viewpoints_information
-          )
-
-
-
 @app.route("/new_plot", methods=["GET"])
 def new_plot():
+  scan = session['information']['scan']
+  metadata = HouseSegmentationFile.load_mapping(scan)
+  viewpoints_information = session['information']['viewpoints_information']
+
   if "node" in request.args["action"]:
     next_node_index = int(request.args["action"].split("-")[1])
     next_viewpoint = session["reachable_viewpoints_array"][next_node_index - 1]
@@ -111,6 +100,7 @@ def new_plot():
     curr_heading += { "left": -np.pi / 2, "right": np.pi/2, "around": np.pi }[request.args["action"].split("-")[1]]
 
   if "stop" in request.args["action"]:
+    curr_heading = session['path'][-1]['heading']
     curr_viewpoint_name = session['path'][-1]['name']
     last_viewpoint_name = session['information']['last_viewpoint_name']
 
@@ -132,15 +122,16 @@ def new_plot():
 
     append_record(information)
 
-    return render_template(
-      "result.html",
-      image_data=None,
-      success=success
+    _, image_data = get_info(
+      scan, last_viewpoint_name, curr_heading, metadata, viewpoints_information
     )
 
-  scan = session['information']['scan']
-  metadata = HouseSegmentationFile.load_mapping(scan)
-  viewpoints_information = session['information']['viewpoints_information']
+    return render_template(
+      "result.html",
+      image_data=image_data,
+      success=success,
+      username=session['information']['owner']
+    )
 
   session['path'].append({
       'name': curr_viewpoint_name,

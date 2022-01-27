@@ -1,9 +1,38 @@
-{% extends "layout.html" %}
-
-{% block content %}
+<div class="reload-box" id="reload">
   {% if success %}
-    <div>Yes</div>
+    <div>
+      Congrats! You stopped at the correct node 🎉
+    </div>
   {% else %}
-    <div>nop</div>
+    <div>
+      You didn't reach the goal 😢 This is not necessarily bad, remember that you can also get a bad instruction, which we are improving with the model.
+      Here is the view of the expected final node.
+    </div>
   {% endif %}
-{% endblock %}
+
+  <button href="/experiment?username={{ username }}">Contribute again! Navigate a different instruction</button>
+
+  <div class="image-container">
+    <img id="plot" src="data:image/png;base64, {{ image_data|safe }}">
+  </div>
+</div>
+
+<script>
+  const success = JSON.parse('{{ success | tojson }}');
+  if (success) {
+    const start = () => {
+      setTimeout(function() {
+          confetti.start()
+      }, 1000);
+    };
+
+    const stop = () => {
+        setTimeout(function() {
+            confetti.stop()
+        }, 3000);
+    };
+
+    start();
+    stop();
+  }
+</script>
