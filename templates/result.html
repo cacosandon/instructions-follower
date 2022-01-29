@@ -1,16 +1,16 @@
 <div class="reload-box" id="reload">
   {% if success %}
-    <div>
+    <h1>
       Congrats! You stopped at the correct node 🎉
-    </div>
+    </h1>
   {% else %}
-    <div>
+    <h3>
       You didn't reach the goal 😢 This is not necessarily bad, remember that you can also get a bad instruction, which we are improving with the model.
       Here is the view of the expected final node.
-    </div>
+    </h3>
   {% endif %}
 
-  <button href="/experiment?username={{ username }}">Contribute again! Navigate a different instruction</button>
+  <button class="turn-button"  onClick="window.location.reload();">Contribute again! Navigate a different instruction</button>
 
   <div class="image-container">
     <img id="plot" src="data:image/png;base64, {{ image_data|safe }}">
