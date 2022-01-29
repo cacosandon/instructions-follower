@@ -1,5 +1,4 @@
 IALAB_USER = 'jiossandon'
-EXPERIMENT_NAME = 'testing'
 
 import os.path as osp
 import json
@@ -210,15 +209,11 @@ def run_human_follower():
 
   base_models = [
     'speaker_base_',
-    'pro-objs-full-continuation-lambda-0_5_',
-    'new-craft-loss-0_5-full+2_',
     'new-craft-stairs-0_5_'
   ]
 
   models_names = [
     'SpeakerBase',
-    'OldObjsLoss_0_5',
-    'CraftLoss_0_5',
     'CraftLossStairs_0_5'
   ]
 
@@ -265,6 +260,7 @@ def run_human_follower():
   instruction_to_eval = random.choice(new_instructions_by_speaker_data + [human_instruction_data, craft_instruction_data])
 
 
+  EXPERIMENT_NAME = 'prod'
   if EXPERIMENT_NAME == 'testing':
     instruction_to_eval = craft_instruction_data
 
