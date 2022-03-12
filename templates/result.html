@@ -10,7 +10,7 @@
     </h3>
   {% endif %}
 
-  <table>
+  <table style="padding-bottom: 20px;">
     <tr>
       <td><b>Success</b></td> 
       <td>
@@ -25,7 +25,7 @@
     <tr><td><b>Navigation Error (NE):</b></td> <td>{{ navigation_error }} (how far you stopped from the goal)</td></tr>
   </table>
 
-  <button class="turn-button"  onClick="window.location.reload();">Contribute again! Navigate a different instruction</button>
+  <button class="turn-button" onClick="window.location.reload();">Contribute again! Navigate a different instruction</button>
 
   <div class="image-container">
     <img id="plot" src="data:image/png;base64, {{ image_data|safe }}">
