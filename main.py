@@ -151,8 +151,8 @@ def new_plot():
       image_data=image_data,
       username=session['information']['owner'],
       success=success,
-      path_length=path_length,
-      navigation_error=navigation_error,
+      path_length=round(path_length, 2),
+      navigation_error=round(navigation_error, 2),
     )
 
   session['path'].append({
