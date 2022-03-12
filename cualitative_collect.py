@@ -194,7 +194,7 @@ def get_info(scan, viewpoint, viewpoint_heading, metadata, viewpoints_informatio
 def run_human_follower():
   viewpoints_information = defaultdict(dict)
 
-  instructions_path = f'/home/{IALAB_USER}/storage/objects-auxiliary/paths/R2R_val_seen.json'
+  instructions_path = f'/home/{IALAB_USER}/storage/objects-auxiliary/paths/R2R_val_unseen.json'
 
 
   with open(instructions_path, 'r') as f:
@@ -220,7 +220,7 @@ def run_human_follower():
   ]
 
   speaker_model = 'speaker_teacher_imagenet_mean_pooled'
-  dataset = 'val_seen'
+  dataset = 'val_unseen'
   iteration = 20000
 
   results_path = f'/home/{IALAB_USER}/storage/speaker_follower_with_objects/tasks/R2R/speaker/results/'
