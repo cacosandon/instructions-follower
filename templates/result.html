@@ -11,10 +11,10 @@
   {% endif %}
 
   <h4>Metrics</h4>
-  <div>
-    <tr><b>Path Length (PL):</b> {{ path_length }} (distance traveled on path)</tr>
-    <tr><b>Navigation Error (NE):</b> {{ navigation_error }} (how far you stopped from the goal)</tr>
-  </div>
+  <table>
+    <tr><td><b>Path Length (PL):</b></td> <td>{{ path_length }} (distance traveled on path)</td></tr>
+    <tr><td><b>Navigation Error (NE):</b></td> <td>{{ navigation_error }} (how far you stopped from the goal)</td></tr>
+  </table>
 
   <button class="turn-button"  onClick="window.location.reload();">Contribute again! Navigate a different instruction</button>
 
