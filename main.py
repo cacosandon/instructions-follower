@@ -1,7 +1,7 @@
 import sys
 import json
 from flask import Flask, render_template, url_for, flash, request, redirect, make_response, session
-from utils import select_options
+from utils import select_options, load_nav_graph
 import numpy as np
 
 IALAB_USER = 'jiossandon'
@@ -34,23 +34,27 @@ def index():
 
 @app.route("/experiment", methods=["GET"])
 def experiment():
-  scan, path_id, viewpoints_sequence, viewpoints_information, \
-  initial_heading, instruction_to_eval = run_human_follower()
-
-  metadata = HouseSegmentationFile.load_mapping(scan)
-
-  # ### Plot viewpoints and save the data
-  curr_viewpoint_name = viewpoints_sequence[0]
-  last_viewpoint_name = viewpoints_sequence[-1]
-  curr_heading = initial_heading
-
   if "username" in request.args:
     username = request.args["username"]
   else:
     flash('❌  Oops. Please enter an username for navigating')
     return redirect(url_for('index'))
 
+
+  scan, path_id, viewpoints_sequence, viewpoints_information, \
+  initial_heading, instruction_to_eval = run_human_follower()
+
+  metadata = HouseSegmentationFile.load_mapping(scan)
+  graph = load_nav_graph(scan)
+
+  # ### Plot viewpoints and save the data
+  curr_viewpoint_name = viewpoints_sequence[0]
+  last_viewpoint_name = viewpoints_sequence[-1]
+  curr_heading = initial_heading
+
   session['path'] = []
+
+  session['distances'] = dict(nx.all_pairs_dijkstra_path_length(graph))
 
   session['information'] = {
     'owner': username,
@@ -61,6 +65,8 @@ def experiment():
     'scan': scan,
     'path': path_id
   }
+
+  session['distance_traveled'] = 0
 
   session['path'].append({
     'name': curr_viewpoint_name,
@@ -91,6 +97,10 @@ def new_plot():
     next_node_index = int(request.args["action"].split("-")[1])
     next_viewpoint = session["reachable_viewpoints_array"][next_node_index - 1]
 
+    from_point = session['path'][-1]['name']
+    to_point = next_viewpoint[4]
+    session['distance_traveled'] += session['distances'][from_point][to_point]
+
     curr_heading = next_viewpoint[3]
     curr_viewpoint_name = next_viewpoint[4]
 
@@ -105,6 +115,11 @@ def new_plot():
     last_viewpoint_name = session['information']['last_viewpoint_name']
 
     success = curr_viewpoint_name == last_viewpoint_name
+    navigation_error = session['distances'][curr_viewpoint_name][last_viewpoint_name]
+    path_length = session['distance_traveled']
+
+    distance_from_start_to_end = session['distances'][session['path'][0]['name']][last_viewpoint_name]
+    spl = int(success) * distance_from_start_to_end / max(path_length, distance_from_start_to_end)
 
     def append_record(record):
       with open('/home/jiossandon/storage/instructions-follower/results/results.json', 'a') as f:
@@ -116,8 +131,11 @@ def new_plot():
       'path_id': session['information']['path'],
       'owner': session['information']['owner'],
       'model': session['information']['model'],
+      'path': session['path'],
       'success': success,
-      'path': session['path']
+      'path_length': path_length,
+      'navigation_error': navigation_error,
+      'success_path_length': spl
     }
 
     append_record(information)
@@ -136,7 +154,8 @@ def new_plot():
   session['path'].append({
       'name': curr_viewpoint_name,
       'heading': curr_heading,
-      'action': request.args["action"]
+      'action': request.args["action"],
+      'distance_traveled': session['distance_traveled']
   })
 
   session['reachable_viewpoints_array'], image_data = get_info(
@@ -148,8 +167,6 @@ def new_plot():
       image_data=image_data,
       options=select_options(len(session['reachable_viewpoints_array']))
   )
-
-  return "hola :)"
 
 @app.errorhandler(404)
 def invalid_route(e):
