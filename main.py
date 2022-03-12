@@ -46,7 +46,6 @@ def experiment():
   initial_heading, instruction_to_eval = run_human_follower()
 
   metadata = HouseSegmentationFile.load_mapping(scan)
-  graph = load_nav_graph(scan)
 
   # ### Plot viewpoints and save the data
   curr_viewpoint_name = viewpoints_sequence[0]
@@ -54,8 +53,6 @@ def experiment():
   curr_heading = initial_heading
 
   session['path'] = []
-
-  session['distances'] = dict(nx.all_pairs_dijkstra_path_length(graph))
 
   session['information'] = {
     'owner': username,
@@ -94,13 +91,17 @@ def new_plot():
   metadata = HouseSegmentationFile.load_mapping(scan)
   viewpoints_information = session['information']['viewpoints_information']
 
+  graph = load_nav_graph(scan)
+  distances = dict(nx.all_pairs_dijkstra_path_length(graph))
+
   if "node" in request.args["action"]:
     next_node_index = int(request.args["action"].split("-")[1])
     next_viewpoint = session["reachable_viewpoints_array"][next_node_index - 1]
 
     from_point = session['path'][-1]['name']
     to_point = next_viewpoint[4]
-    session['distance_traveled'] += session['distances'][from_point][to_point]
+
+    session['distance_traveled'] += distances[from_point][to_point]
 
     curr_heading = next_viewpoint[3]
     curr_viewpoint_name = next_viewpoint[4]
@@ -115,11 +116,11 @@ def new_plot():
     curr_viewpoint_name = session['path'][-1]['name']
     last_viewpoint_name = session['information']['last_viewpoint_name']
 
-    navigation_error = session['distances'][curr_viewpoint_name][last_viewpoint_name]
+    navigation_error = distances[curr_viewpoint_name][last_viewpoint_name]
     success = navigation_error < 3.0
     path_length = session['distance_traveled']
 
-    distance_from_start_to_end = session['distances'][session['path'][0]['name']][last_viewpoint_name]
+    distance_from_start_to_end = distances[session['path'][0]['name']][last_viewpoint_name]
     spl = int(success) * distance_from_start_to_end / max(path_length, distance_from_start_to_end)
 
     def append_record(record):
