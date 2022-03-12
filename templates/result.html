@@ -10,8 +10,17 @@
     </h3>
   {% endif %}
 
-  <h4>Metrics</h4>
   <table>
+    <tr>
+      <td><b>Success</b></td> 
+      <td>
+        {% if success %}
+          ✅
+        {% else %}
+          ❌
+        {% endif %}
+      </td>
+    </tr>
     <tr><td><b>Path Length (PL):</b></td> <td>{{ path_length }} (distance traveled on path)</td></tr>
     <tr><td><b>Navigation Error (NE):</b></td> <td>{{ navigation_error }} (how far you stopped from the goal)</td></tr>
   </table>
