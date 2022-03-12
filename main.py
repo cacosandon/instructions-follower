@@ -3,6 +3,7 @@ import json
 from flask import Flask, render_template, url_for, flash, request, redirect, make_response, session
 from utils import select_options, load_nav_graph
 import numpy as np
+import networkx as nx
 
 IALAB_USER = 'jiossandon'
 
@@ -114,8 +115,8 @@ def new_plot():
     curr_viewpoint_name = session['path'][-1]['name']
     last_viewpoint_name = session['information']['last_viewpoint_name']
 
-    success = curr_viewpoint_name == last_viewpoint_name
     navigation_error = session['distances'][curr_viewpoint_name][last_viewpoint_name]
+    success = navigation_error < 3.0
     path_length = session['distance_traveled']
 
     distance_from_start_to_end = session['distances'][session['path'][0]['name']][last_viewpoint_name]
@@ -147,8 +148,10 @@ def new_plot():
     return render_template(
       "result.html",
       image_data=image_data,
+      username=session['information']['owner'],
       success=success,
-      username=session['information']['owner']
+      path_length=path_length,
+      navigation_error=navigation_error,
     )
 
   session['path'].append({
